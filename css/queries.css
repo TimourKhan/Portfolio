@@ -16,19 +16,15 @@
 }
 
 @media(max-width: 767px) {
+    .container {
+        margin-inline: 0;
+    }
 
     .home-content {
         justify-content: center;
         text-align: center;
     }
 
-    .home .home-content .block h1 {
-        font-size: 60px;
-    }
-
-    .home .home-content .block h3 {
-        font-size: 20px;
-    }
 
     header {
         padding-inline: 15px;
