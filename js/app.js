@@ -1,6 +1,4 @@
 //Header fixed
-
-
 window.onscroll = function () {
   const docScrollTop = document.documentElement.scrollTop;
 
@@ -37,8 +35,19 @@ a.forEach(function (element) {
     document.querySelector(".navbar").classList.toggle("show");
   })
 })*/
+let url = window.location.href;
+let urlWithoutHash = url.split('#')[0];
+document.querySelectorAll('nav a').forEach(anchor => {
+  anchor.addEventListener('click', function () {
+    setTimeout(() => {
+      window.history.replaceState({}, document.title, urlWithoutHash);
+    }, 1);
 
-if (window.location.pathname === '/index.html') {
+  });
+});
+
+
+if (document.querySelector('#index')) {
   const sections = document.querySelectorAll("section");
   const navLi = document.querySelectorAll("nav ul li a");
   window.addEventListener("scroll", () => {
@@ -46,7 +55,7 @@ if (window.location.pathname === '/index.html') {
     sections.forEach((section) => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.clientHeight;
-      if (scrollY >= sectionTop - sectionHeight / 3) {
+      if (scrollY >= sectionTop - sectionHeight / 7) {
         current = section.getAttribute("id");
       }
     });

@@ -1,15 +1,21 @@
 .contact {
     padding: 100px 150px;
+    scroll-margin-top: 70px;
 }
 
 .contact .row .title h1::before {
     left: 30%;
 }
 
+.form-holder {
+    display: flex;
+    justify-content: center;
+}
+
 .contact-form {
     /* background-color: #fff; */
     flex: 0 0 100%;
-    max-width: 100%;
+    max-width: 75%;
     padding: 40px;
     border: 1.5px solid #84cba1;
     /* border-radius: 5px; */

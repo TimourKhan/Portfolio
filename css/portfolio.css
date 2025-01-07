@@ -1,41 +1,7 @@
 .portfolio {
     padding-top: 100px;
     border-bottom: 1px solid #84cba24b;
-}
-
-.portfolio .row .title h1::before {
-    left: 30%;
-}
-
-.filter-btn {
-    flex: 0 0 100%;
-    max-width: 100%;
-}
-
-.filter-btn ul {
-    list-style: none;
-    text-align: center;
-    padding: 0;
-}
-
-.filter-btn ul li {
-    color: #000;
-    font-weight: 500;
-    font-size: 15px;
-    display: inline-block;
-    margin: 0px 8px;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding-bottom: 0;
-}
-
-.filter-btn ul li.active {
-    color: #5f88e0;
-    border-bottom: 2px solid #5f88e0;
-}
-
-.filter-btn {
-    margin-bottom: 25px;
+    scroll-margin-top: 70px;
 }
 
 .gallery {
@@ -275,8 +241,12 @@
     font-weight: 100;
 }
 
+
 .iteminfo a {
+    font-size: inherit;
     text-decoration: underline;
+    color: white;
+
 }
 
 .iteminfo a:visited,
@@ -320,11 +290,15 @@
 
 }
 
+.changeproj a {
+    color: white;
+}
+
 .changeproj a:visited,
 .changeproj a:active {
     color: inherit;
-
 }
+
 
 .changeproj label {
     padding-inline: 30px;

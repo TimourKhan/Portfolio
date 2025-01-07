@@ -73,7 +73,7 @@ section {
   margin-bottom: 40px;
 }
 
-.title h1 {
+.title h3 {
   display: inline-block;
   font-size: 35px;
   font-weight: 700;
@@ -82,9 +82,9 @@ section {
   position: relative;
 }
 
-.title h1::before {
+.title h3::before {
   content: "";
-  left: 0;
+  left: 30%;
   right: 30%;
   position: absolute;
   height: 2px;

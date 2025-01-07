@@ -1,11 +1,11 @@
 .home {
-  min-height: 100vh;
-  background: linear-gradient(#083b35, #123526);
+  position: relative;
+  min-height: 120vh;
+  background: linear-gradient(#083b35 50%, #123526f1), url("/img/cover.jpg");
   background-size: cover;
-  background-position: center;
   padding: 15px;
+  box-shadow: inset 0 -15px 25px rgba(0, 0, 0, 0.329);
 }
-
 
 .full-screen {
   min-height: 100vh;
@@ -20,7 +20,6 @@
 }
 
 .block {
-  text-align: center;
   max-width: 75%;
   color: rgb(236, 241, 250);
   padding-left: 35px;
