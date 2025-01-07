@@ -37,7 +37,7 @@ a.forEach(function (element) {
 })*/
 let url = window.location.href;
 let urlWithoutHash = url.split('#')[0];
-document.querySelectorAll('nav a').forEach(anchor => {
+document.querySelectorAll('header a').forEach(anchor => {
   anchor.addEventListener('click', function () {
     setTimeout(() => {
       window.history.replaceState({}, document.title, urlWithoutHash);
@@ -45,6 +45,7 @@ document.querySelectorAll('nav a').forEach(anchor => {
 
   });
 });
+
 
 
 if (document.querySelector('#index')) {
