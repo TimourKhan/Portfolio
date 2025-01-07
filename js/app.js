@@ -9,10 +9,16 @@ window.onscroll = function () {
       document.querySelector("header").classList.remove("fixed");
     }
   }
-
-
 }
 
+
+//Hamburger
+const hamBurger = document.querySelector(".hamburger");
+
+hamBurger.addEventListener("click", function () {
+  document.querySelector(".navbar").classList.toggle("navshow");
+  document.querySelector(".navbar").classList.toggle("navhide");
+})
 
 /*if (window.innerWidth <= 767) {
   document.querySelector(".navbar").classList.add("hide");
@@ -35,19 +41,39 @@ a.forEach(function (element) {
     document.querySelector(".navbar").classList.toggle("show");
   })
 })*/
+
+
+//Remove anchor hash from URL when jumping to different sections
 let url = window.location.href;
 let urlWithoutHash = url.split('#')[0];
-document.querySelectorAll('header a').forEach(anchor => {
+document.querySelectorAll('header a, .home a').forEach(anchor => {
   anchor.addEventListener('click', function () {
     setTimeout(() => {
       window.history.replaceState({}, document.title, urlWithoutHash);
-    }, 1);
-
+    }, 5);
   });
 });
 
 
+//Remove anchor hash from URL when going back to index
+function removeHash() {
+  setTimeout(() => {
+    history.pushState("", document.title, window.location.pathname
+      + window.location.search);
+  }, 150);
+}
+removeHash();
 
+
+//Remove .html from URL
+function removeHtmlFromUrl() {
+  let cleanUrl = url.replace(/\.html$/, '');
+  window.history.replaceState({}, document.title, cleanUrl);
+}
+removeHtmlFromUrl();
+
+
+//Underline nav when reaching different sections
 if (document.querySelector('#index')) {
   const sections = document.querySelectorAll("section");
   const navLi = document.querySelectorAll("nav ul li a");
@@ -70,19 +96,8 @@ if (document.querySelector('#index')) {
   });
 }
 
-//Hamburger
-
-const hamBurger = document.querySelector(".hamburger");
-
-hamBurger.addEventListener("click", function () {
-  document.querySelector(".navbar").classList.toggle("navshow");
-  document.querySelector(".navbar").classList.toggle("navhide");
-
-
-})
 
 //Portfolio Gallery
-
 const closeLightbox = document.querySelector(".close-lightbox");
 const lightbox = document.querySelector(".lightbox");
 const lightboxImg = lightbox.querySelector("img");
@@ -110,94 +125,6 @@ galleryItem.forEach(function (element) {
     lightboxImg.src = element.querySelector("img").getAttribute("src");
   });
 });
-
-// Testimonials Slider
-
-const sliderContainer = document.querySelector(".testimonials-box");
-const slider = sliderContainer.children;
-const containerWidth = sliderContainer.offsetWidth;
-
-const margin = 30;
-let itemPerSlide = 0;
-let sliderDot;
-
-const responsive = [{
-  breakPoint: {
-    width: 0,
-    item: 1,
-  },
-},
-{
-  breakPoint: {
-    width: 991,
-    item: 2,
-  },
-},
-];
-
-function load() {
-  for (let i = 0; i < responsive.length; i++) {
-    if (window.innerWidth > responsive[i].breakPoint.width) {
-      itemPerSlide = responsive[i].breakPoint.item;
-    }
-  }
-  start();
-}
-
-function start() {
-  totalWidth = 0;
-  for (let i = 0; i < slider.length; i++) {
-    slider[i].style.width = containerWidth / itemPerSlide - margin + "px";
-    slider[i].style.margin = margin / 2 + "px";
-    totalWidth += containerWidth / itemPerSlide;
-  }
-  sliderContainer.style.width = totalWidth + "px";
-
-  sliderDot = Math.ceil(slider.length / itemPerSlide);
-
-  for (let i = 0; i < sliderDot; i++) {
-    const div = document.createElement("div");
-    div.id = i;
-    div.setAttribute("onclick", "controlSlide(this)");
-    if (i == 0) {
-      div.classList.add("active");
-    }
-    document.querySelector(".slider").appendChild(div);
-  }
-}
-
-let currentSlide = 0;
-let autoSlide = 0;
-
-function controlSlide(element) {
-  clearInterval(timer);
-  timer = setInterval(autoPlay, 5000);
-  autoSlide = element.id;
-  currentSlide = element.id;
-  changeSlide(currentSlide);
-}
-
-function changeSlide(currentSlide) {
-  controlButton = document.querySelector(".slider").children;
-  for (let i = 0; i < controlButton.length; i++) {
-    controlButton[i].classList.remove("active");
-  }
-  controlButton[currentSlide].classList.add("active");
-
-  sliderContainer.style.marginLeft = -(containerWidth * currentSlide) + "px";
-}
-
-function autoPlay() {
-  if (autoSlide == sliderDot - 1) {
-    autoSlide = 0;
-  } else {
-    autoSlide++;
-  }
-  changeSlide(autoSlide);
-}
-let timer = setInterval(autoPlay, 5000);
-
-window.onload = load();
 
 
 //Footer Year 
