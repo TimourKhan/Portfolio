@@ -11,6 +11,9 @@ window.onscroll = function () {
   }
 }
 
+//Footer Year 
+let year = document.querySelector(".year");
+year.innerHTML = new Date().getFullYear();
 
 //Hamburger
 const hamBurger = document.querySelector(".hamburger");
@@ -127,7 +130,3 @@ galleryItem.forEach(function (element) {
 });
 
 
-//Footer Year 
-let year = document.querySelector(".year");
-console.log(year);
-year.innerHTML = new Date().getFullYear();
