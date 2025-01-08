@@ -140,6 +140,29 @@
         margin-top: 50px;
     }
 
+    .iteminfo h3 {
+        font-size: 40px;
+    }
+
+    .iteminfo p {
+        font-size: 16px;
+        font-weight: 200;
+        line-height: 24px;
+    }
+
+    .itemimgs {
+        padding-bottom: 0;
+    }
+
+    .changeproj {
+        gap: 20px;
+    }
+
+    .changeproj label {
+        font-size: 20px;
+        padding-inline: 0;
+    }
+
     .contact {
         padding: 100px 10px;
     }

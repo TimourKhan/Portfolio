@@ -292,6 +292,8 @@
 
 .changeproj a {
     color: white;
+    text-align: center;
+    display: flex;
 }
 
 .changeproj a:visited,
