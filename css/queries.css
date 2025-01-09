@@ -182,9 +182,7 @@
 }
 
 @media(max-width: 500px) {
-    .home .home-content .block {
-        padding-left: 20px;
-    }
+
 
     /* .home .home-content .block h1 {
       font-size: 30px;
