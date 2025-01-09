@@ -282,6 +282,10 @@
     object-fit: contain;
 }
 
+.vidcontainer {
+    margin-top: 30px;
+}
+
 .changeproj {
     display: flex;
     justify-content: space-between;
