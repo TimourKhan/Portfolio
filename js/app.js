@@ -11,9 +11,22 @@ window.onscroll = function () {
   }
 }
 
-//Footer Year 
-let year = document.querySelector(".year");
-year.innerHTML = new Date().getFullYear();
+//Inject footer
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("./footer.html")
+    .then(response => response.text())
+    .then(data => {
+      const footer = document.createElement("footer");
+      footer.innerHTML = data;
+      document.body.appendChild(footer);
+      //Footer year
+      let year = document.querySelector(".year");
+      year.innerHTML = new Date().getFullYear();
+    })
+    .catch(err => {
+      console.error("Error loading footer:", err);
+    });
+});
 
 //Hamburger
 const hamBurger = document.querySelector(".hamburger");
